@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    
+    <head>
+<meta charset="utf-8">
+<title>LearnVille | Student or Teacher</title>
+        
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/style.css')}}">
+        
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    
+<body class="nogrid-body">
+    
+    <div id=main>
+        
+<h2>Are you a Teacher or a Student?</h2>
+ 
+        <div class="buttons-tors">
+<a href="{{url_for('signup',atype='teacher',fullname=fullname,email=email)}}">Teacher</a>
+             </div>
+            <div class="buttons-tors">
+<a href="{{url_for('signup',atype='student',fullname=fullname,email=email)}}">Student</a>
+        </div>
+        
+<script type="text/javascript">
+const buttons = document.querySelectorAll('a');
+buttons.forEach(btn =>{
+btn.addEventListener('click', function(e){
+let x = e.clientX - e.target.offsetLeft;
+let y = e.clientY - e.target.offsetTop;
+let ripples = document.createElement('span');
+ripples.style.left = x + 'px';
+ripples.style.top = y + 'px';
+this.appendChild(ripples);
+setTimeout(()=> {
+ripples.remove()
+
+},1000)
+
+
+})
+})
+</script>
+    </div>
+</body>
+</html>

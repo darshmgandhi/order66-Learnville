@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teacher Sign Up</title>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/style.css')}}">
+</head>
+    
+    
+<body class="nogrid-body">
+    
+<div class="stsignup-wrap">
+    
+    
+<h2>Sign Up</h2>
+    
+<form id="stsignup-form" method="POST" action="#">
+<input name = "username" type="text" placeholder="Username" required  class="input-field">
+<input name = "institution" type="text" placeholder="Institution" required  class="input-field">
+<input name = "date" type="date" placeholder="Date Of Birth" required style="color: #808080" class="input-field">
+<input name = "bio" type="text" placeholder="Bio" required  class="input-field" class="input-field">
+    <input name = "pass" type="password" placeholder="Password" required class="input-field">
+    <input name = "conpass" type="password" placeholder="Confirm Password" required class="input-field">
+<input type="submit" value="Submit" class="submit-btn">
+</form>
+
+
+
+
+
+</div>
+</body>
+</html>

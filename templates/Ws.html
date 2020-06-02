@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Worksheet</title>
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    
+    
+<body class="worksheet-body">
+    
+    <header>
+        <div id="header">
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+            </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px;"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+            <li><a href="{{url_for('dashboard')}}" class="nav-link">Home</a></li>
+            {% if atype=='student' %}
+            <li><a href="{{url_for('allcourses')}}" class="nav-link">All Courses</a></li>
+            {% endif %}
+            <li><a href="{{url_for('profile')}}"class="nav-link">My Profile</a></li>
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+    
+    
+<input type="checkbox" id='check'>
+<label for="check">
+<i class="fas fa-bars" id="bars"></i>
+<i class="fas fa-times" id="cancel" style="color: whitesmoke;"></i>
+</label>
+    
+<div class="sidebar">
+<h2>More</h2>
+    
+<ul> 
+<li><a href="{{url_for('course',course_id=current_problem[0][3])}}" class="side-link"><i class="fas fa-qrcode"></i>Course Home</a></li>
+<li><a href="{{url_for('profile')}}" class="side-link" ><i class="fas fa-link"></i>Profile</a></li>
+{% if atype=='student' %}
+<li><a href="{{url_for('allcourses')}}" class="side-link"><i class="fas fa-stream"></i>Courses</a></li>
+{% endif %}
+<li><a href="#" class="side-link"><i class="fas fa-question-circle"></i>Discussion</a></li>
+<li><a href="#" class="side-link"><i class="fas fa-sliders-h"></i>Ratings</a></li>
+</ul>
+</div>
+        
+<div class="worksheetno">
+    
+      <h3>Worksheet</h3>
+  <table>
+    {% for problem in all_problems %} 
+      <tr>
+        <td><a href="{{url_for('problem', course_id=current_problem[0][3],problem_id=problem[0])}}"><button class="btnq">{{problem[1]}}</button></a></td>
+      </tr>
+    {% endfor %}
+    {% if atype=='teacher' %}
+      <tr>
+        <td><a href="{{url_for('addproblem', course_id=current_problem[0][3])}}"><button class="btnq">+ Add a problem</button></a></td>
+      </tr>
+    {% endif %}
+</table>
+</div>
+
+<div class="item2">
+{% if solved %}
+<div id="ques-solved">This problem has been solved<br/><br/></div>
+{% endif %}
+
+  <div id="ques_box"><textarea id="ques-student" readonly>{{ current_problem[0][2] }}</textarea></div>
+  </div>  
+  {% if current_problem[0][6]=='problem' %}
+    {% if atype=='student' %}
+      {% if solved==False %}
+        <div id="answer"><form id="as" method="POST"></form><textarea form="as" id="subject" name="answer" placeholder="Write Answer.."></textarea></div>  
+        {% else %}
+        <div id="answer"><form id="as"></form><textarea form="as" id="subject" name="answer" readonly >{{ current_problem[0][5] }}</textarea></div>          
+      {% endif %}
+    {% else %}
+      <div id="answer"><form id="as"></form><textarea form="as" id="subject" name="answer" readonly >{{ current_problem[0][5] }}</textarea></div>  
+    {% endif %}
+  {% endif %}
+  
+ 
+
+<div class="container">
+  {% if atype=='student' %}
+    {% if current_problem[0][6]=='problem' %} 
+    {% if solved==False %} 
+      <a href="#"><button form="as" name="submit" value="submit" class=" btn btn1">Submit</button></a>
+      {% endif %}
+    {% endif %}
+    {% else %}
+    <a href="{{ url_for('deleteproblem',course_id=current_problem[0][3],problem_id=current_problem[0][0]) }}"><button name="submit" value="submit" class=" btn btn1">Delete</button></a>
+  {% endif %} 
+  {% if next_Problem!=0 %}
+    <a href="{{url_for('problem',course_id=current_problem[0][3],problem_id=next_Problem)}}"><button class=" btn btn2">Next</button></a>
+  {% endif %}
+<a href="{{url_for('dashboard')}}"><button class=" btn btn3">Exit</button></a>
+</div>
+    
+    <footer id="footer-ws">
+        
+            <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="{{url_for('about')}}" id="about">ABOUT US</a></div>
+            
+            
+        
+        </footer>
+
+</body>
+</html>

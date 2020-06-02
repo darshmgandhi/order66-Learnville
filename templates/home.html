@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>LearnVille | Home</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+</head>
+    <body>
+        <header>
+        <div id="header">
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+            </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px;"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+            <li><a href="#" class="nav-link">Home</a></li>
+            {% if stype=='student' %}
+                <li><a href="{{url_for('allcourses')}}" class="nav-link">All Courses</a></li>
+            {% endif %}    
+            <li><a href="{{url_for('profile')}}"class="nav-link">My Profile</a></li>
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+        
+        
+        <div class="content">
+    
+    <section id="mycourses" class="content-div">
+        
+        <div class="title">
+        
+            <p>My Courses</p>
+            <div id="mycourses-div">                
+                {% for course in all_courses %}
+                    <div id="toc">
+                        <a href="{{url_for('course',course_id=course[0])}}">
+                    <img src="{{url_for('static', filename = 'assets/toc.jpg')}}" class="course-img"> </a>
+                        <div>
+                        <p class="tt"><a href="{{url_for('course',course_id=course[0])}}">{{course[1]}}</a></p>
+                                {{course[2]}}</div>
+                            <div class="teacher">
+                                -by {{course[4]}}        </div>
+                        {% if stype=='student' %}            
+                        <div id="pin">                            
+                        <a href="{{url_for('unpincourse', course_id=course[0], where_from='dash')}}"><input type="button" name="pinned" value="UNPIN" id="pin-btn" class="submit-btn"></a>
+                        </div>
+                        {% endif %}
+                        </div>
+                {% endfor %}                 
+                {% if stype=='teacher' %} 
+                <div id="toc">
+                    <a href="{{url_for('addcourse')}}">
+                    <img src="{{url_for('static', filename = 'assets/toc.jpg')}}" class="course-img"> </a>
+                    <div>
+                    <p class="tt"><a href="{{url_for('addcourse')}}">+ Add Course</a></p>
+                            </div>
+                    </div>
+                {% endif %}     
+            <hr />
+                
+                        
+            </div>
+        </div>
+        
+        
+        </section>
+        
+        </div>
+        
+        <footer id="footer">
+        
+            <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="{{url_for('about')}}" id="about">ABOUT US</a></div>
+            
+            
+        
+        </footer>
+        
+        
+        
+        
+    
+    </body>
+</html>

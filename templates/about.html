@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>LearnVille | About Us</title>
+    
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+ <header>
+        <div id="header">
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+            </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px;"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+            <li><a href="{{url_for('dashboard')}}" class="nav-link">Home</a></li>
+            {% if stype=='student' %}
+            <li><a href="{{url_for('allcourses')}}" class="nav-link">All Courses</a></li>
+            {% endif %}
+            <li><a href="{{url_for('profile')}}"class="nav-link">My Profile</a></li>
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+    
+        
+        <div id='about' class="content">
+            
+      
+        <h1 id="abt-title">About Us</h1>
+          
+        <p id="abt-para">There are many platforms available as of now for students to learn new skills and
+improve theirs access to different course materials related to their
+respective areas of education. The amount of content available for students is numerous however,
+there are hardly any platforms that supplements students need for practicing a concept.
+Practicing a concept is a very important part of the learning process.
+And thus, LearnVille aims to provide students with the questions to
+practice a concept of a particular course curated by the teachers
+with interactive tools to develop a solution to a problem.<br/><br />
+<b>- Students can ‘build’ their answers:</b><br />
+We believe that learning would be most efficient if students could “build” their own answers
+from scratch just like they would on a pen-and-paper test.<br /><br />
+            <b>- Automated correction process:</b><br />
+It is necessary to automate the correction process so that students can get instant feedback on their solution.<br /><br />
+            <b>- Best of both worlds:</b><br />
+A perfect mix of both theory and practical knowledge is essential for proper understanding.</p>
+      
+
+    </div>
+        
+          
+    <footer id="footer">
+        
+                <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="#" id="about">ABOUT US</a></div>
+            
+            
+        
+       
+      </footer>
+            
+    
+  
+</body>
+</html>

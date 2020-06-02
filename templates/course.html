@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>LearnVille | Course</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+</head>
+    
+    <body>
+        
+        <header>
+        <div id="header">
+        
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+                </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px;"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+           <li><a href="{{url_for('dashboard')}}" class="nav-link">Home</a></li>
+           {% if stype=='student' %}
+            <li><a href="{{url_for('allcourses')}}" class="nav-link">All Courses</a></li>
+            {% endif %}
+            <li><a href="{{url_for('profile')}}"class="nav-link">My Profile</a></li>
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+        
+        
+       
+        
+        <div class="content">
+            
+            <h1>Welcome to {{ course_name }}</h1><br /> <br />
+        {% for problem in all_problems %}
+            <div class="worksheet">
+            <a href="{{url_for('problem', course_id=course_id,problem_id=problem[0])}}">{{problem[1]}}</a>
+            </div>
+        {% endfor %} 
+        {% if stype=='teacher' %}
+        <div class="worksheet">
+            <a href="{{url_for('addproblem', course_id=course_id)}}">+ Add Problem</a>
+            </div>
+        {% endif %}           
+        </div>
+        
+        <div id="discussion">
+        <h2>Discussion Forum</h2>
+        </div>
+        
+        <footer id="footer">
+        
+            
+            <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="{{url_for('about')}}" id="about">ABOUT US</a></div>
+        
+    
+        </footer>
+        
+    </body>
+
+</html>
+        

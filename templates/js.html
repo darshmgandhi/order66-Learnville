@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>LearnVille | Welcome</title>
+    
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+ <header>
+        <div id="header">
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+            </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px; color: white"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+            <li><a href="#" class="nav-link">HOME</a></li>
+            <li><a href="#" class="nav-link">SERVICES</a></li>
+            
+                <li><a href="#"class="nav-link">CONTACT</a></li>
+                
+                <li><a href="{{url_for('register')}}" class="nav-link"> SIGN UP</a></li>
+                
+	<li><a href="{{url_for('register')}}" class="nav-link"> LOG IN</a></li>
+                
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+    
+        
+        <div id='banner' class="content">
+            
+      
+        <h1 id="lv-title">Welcome to LearnVille,</h1>
+          
+        <p id="lv-para">An interactive platform made foe students to sharpen their skills by the power of practise.</p>
+      
+      <div class="play-btn">
+        <div class="play-btInner"><i class="fa fa-play"></i></div>
+        <small><b><a href="{{url_for('about')}}">LEARN MORE</a></b></small>
+     </div>
+          
+      <div class="app-pic">
+        <img src="{{url_for('static', filename = 'assets/img3.jpg')}}" id="banner-img">
+      </div>
+    
+    </div>
+        
+          
+    <footer id="footer">
+        
+                <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="{{url_for('about')}}" id="about">ABOUT US</a></div>
+            
+            
+        
+       
+      </footer>
+            
+    
+  
+</body>
+</html>

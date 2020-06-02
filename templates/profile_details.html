@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>LearnVille | My Profile</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+    
+    <body>
+        <header>
+        <div id="header">
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+            </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px;"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+            <li><a href="{{url_for('dashboard')}}" class="nav-link">Home</a></li>
+            {% if type=='student' %}
+            <li><a href="{{url_for('allcourses')}}" class="nav-link">All Courses</a></li>
+            {% endif %}
+            <li><a href="#"class="nav-link">My Profile</a></li>
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+        
+        
+        <div class="content">
+            
+            
+            
+            <section id="profile-form" class="content-div">
+                
+                
+            <div class="image" style="width:50%;">
+                
+ <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTloAqJtQ5buNfQE58fMkIhGZJlcoh1cEgHbIIFh13r2TkYNM_E&usqp=CAU" width="150" height="150">
+                <br />
+                <br />
+                <br />
+                <div id="upload-btn">
+<button><a href="#"> Upload </a></button>
+</div>
+                
+ </div>
+
+<br /><br />
+
+
+
+<form name="profileinfo" action="send.php" method="post" id="profileinfo-form">
+ 
+    <label class="t-label" for="t-userid">User Id:</label> 
+   <input type="text" id="t-userid" value="{{ user_profile[0][0] }}">
+<br /><br />
+<label class="t-label" for="t-fname">First Name:</label>  
+  <input type="text" name="fname" maxlength="50" value="{{ user_profile[0][1].split(' ',1)[0] }}" id="t-fname">
+    <br /><br />
+    <label class="t-label" for="t-lname">Last Name:</label>
+    
+    <input type="text" name="lname" maxlength="50" style="text_align:center;" value="{{ user_profile[0][1].split(' ',1)[1] }}" id="t-lname">
+<br /><br />
+<label class="t-label" for="t-ptype">Profile Type:</label>
+    
+<input type="text" name="type" maxlength="50" style="text_align:center;" value="{{ type }}" id="t-lname" readonly>
+<br /><br />
+<label class="t-label" for="inst">Institution:</label> 
+  <input type="text" name="institution" maxlength="100" id="t-inst" value="{{ user_profile[0][4] }}">
+    <br /><br />
+    <label class="t-label" for="bio">Bio</label>
+<textarea id="bio">{{ user_profile[0][6] }}</textarea>
+       <br />  <br />  
+   <label class="t-label" for="bday">D.O.B.:</label>  
+<input type="date" id="bday" class="input-field" value="{{ user_profile[0][5] }}">
+            
+                </form></section>
+                    
+    
+    <!--<section id="mycourses" class="content-div">
+        
+        <div class="title">
+        
+            <p>My Courses</p>
+            <div id="mycourses-div">
+            
+                <div id="toc">
+                    <a href="courses/toc.html">
+                <img src="../images/toc.png" class="course-img">
+                        <div class="teacher">-by Ayan Nandy</div>
+                        </a>
+                </div>
+                
+                <div id="cao">
+                    <a href="#">
+                <img src="../images/cao.png" class="course-img"><div class="teacher">-by Vikas Upadhyay</div>
+                        </a>
+                </div>
+                
+                <div id="dbms">
+                    <a href="#">
+                <img src="../images/dbms.png" class="course-img"><div class="teacher">-by Deepika Prakash</div>
+                        </a>
+                </div>
+                
+                
+                
+                <div id="pin">
+                    <a href="#"><input type="button" name="pinned" value="PIN" id="pin-btn" class="submit-btn"></a>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        </section>
+        
+        <section id="performance-graph" class="content-div">
+        
+        <div class="title">
+        
+            <p>Preformance Graph</p>
+            <div id="trendingcoursec-div">
+        
+            </div>
+        
+        
+        
+        </div>
+            </section>
+        -->
+        </div>
+        <footer id="footer">
+        
+            <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="{{url_for('about')}}" id="about">ABOUT US</a></div>
+            
+            
+        
+        </footer>
+
+    </body>
+
+</html>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    

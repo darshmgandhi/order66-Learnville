@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sign Up</title>
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+</head>
+    
+<body class="nogrid-body">
+    
+    
+<div class="wrap">
+    
+<div class="form">
+<div class="butnbox">
+<div id="btn"> </div>
+<button type="button" class="toggle" onclick="login()">Log In </button>
+<button type="button" class="toggle" onclick="signup()">Sign Up </button>
+</div>
+</div>
+   
+    <div id="login-div">
+<form id="login" class="input-group" method="POST" action="{{url_for('login')}}">
+<input type="text" name = "username" class="input-field" placeholder="User Id" required>
+<input type="password" name = "password" class="input-field" placeholder="Password" required>
+<button type="Submit" class="submit-btn">Log In </button>
+</form>
+    </div>
+    
+    <div id="signup-div">
+<form id="signup" class="input-group" method="POST" action="{{url_for('choice')}}">
+<input type="text" class="input-field" placeholder="Full Name" required name="fullname">
+<input type="email" class="input-field" placeholder="Email Id" required name="emailid">
+
+<button type="Submit" class="submit-btn">Sign Up</button>
+</form>
+</div>
+</div>
+<script>
+
+var x = document.getElementById("login");
+var x = document.getElementById("signup");
+var y = document.getElementById("btn");
+function signup(){
+	x.style.left = "400px";
+	y.style.left = "110px";
+	z.style.left = "110px";
+}
+function login(){
+	x.style.left = "-800px";
+	y.style.left = "450px";
+	z.style.left = "110px";
+}
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Worksheet-1</title>
+    
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename = 'css/style.css')}}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+    
+    
+<body id="teacher-ws-body">
+    
+    <header>
+        <div id="header">
+            <div id="logo">
+            <figure>
+            <img src="{{url_for('static', filename = 'assets/learning.png')}}">
+            </figure>
+            </div>
+            <div>
+            </div>
+            
+            <div id="search-div">
+                <i class="fa fa-search" style="font-size: 20px;"></i>
+                <input type="search" id="search" name="search-result" >
+            </div>
+            
+            
+            <div id="navbar">
+                <nav>
+            <ul>
+            <li><a href="{{url_for('dashboard')}}" class="nav-link">Home</a></li>
+            <li><a href="{{url_for('allcourses')}}" class="nav-link">All Courses</a></li>
+            <li><a href="{{url_for('profile')}}"class="nav-link">My Profile</a></li>
+            <li><a href="#" class="nav-link"><i class="fa fa-gear" style="font-size:20px"></i></a>
+                </li>
+            
+        </ul>
+        </nav>
+        </div>
+        </div>
+        </header>
+    
+<input type="checkbox" id='check'>
+<label for="check">
+<i class="fas fa-bars" id="bars"></i>
+<i class="fas fa-times" id="cancel"></i>
+</label>
+    
+<div class="sidebar">
+<h2>More</h2>
+    
+<ul> 
+<li><a href="#" class="nav-link"><i class="fas fa-qrcode"></i>Course Home</a></li>
+<li><a href="#" class="nav-link" ><i class="fas fa-link"></i>Profile</a></li>
+<li><a href="#" class="nav-link"><i class="fas fa-stream"></i>Courses</a></li>
+<li><a href="#" class="nav-link"><i class="fas fa-question-circle"></i>Discussion</a></li>
+<li><a href="#" class="nav-link"><i class="fas fa-sliders-h"></i>Ratings</a></li>
+</ul>
+</div>
+    
+
+    
+<div class="worksheetentry">
+  <div class="item1"><p>Worksheet Title</p>
+  <form id="ab" method="POST"><input type="text" class="inputtext" name = "name"></form>
+  </div>
+  <div><p>Enter Question</p></div>
+  <textarea form="ab" class="inputtext" id="enterquestion" name="subject" placeholder="Write Question.."></textarea>
+  <div class="item3"><p>Type of Question</p>
+  <!-- <form action="/action_page.php"> -->
+    <select form="ab" id="qtype" name="qtype">
+        <option value="problem">Problem</option>    
+        <option value="theory">Theory</option>
+      </select>     
+<!-- </form> -->
+</div>  
+  <div><br />
+        <textarea form="ab" id="answer-teacher" name="Answer" placeholder="Write the answer here.."></textarea></div>
+
+</div>
+
+<div class="containert">
+<button form="ab" class=" btn btn2">Save</button>
+<button class=" btn btn3">Exit</button>
+</div>
+    <footer id="footer-wst">
+        
+            <div id="socials">
+            <a href="#" class="fa fa-facebook" id="facebook"></a>
+            <a href="#" class="fa fa-instagram" id="instagram"></a>
+            <a href="#" class="fa fa-twitter" id="twitter"></a>
+            <a href="#" id="about">ABOUT US</a></div>
+            
+            
+        
+        </footer>
+
+</body>
+</html>
