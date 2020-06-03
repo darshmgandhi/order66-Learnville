@@ -1,0 +1,55 @@
+create database learnzilla;
+
+use learnzilla;
+
+create table student(
+username varchar(40) primary key,
+name varchar(40),
+email varchar(40),
+password varchar(40),
+institution varchar(30),
+dob date,
+bio varchar(70));
+
+create table teacher(
+username varchar(40) primary key,
+name varchar(40),
+email varchar(40),
+password varchar(40),
+institution varchar(30),
+dob date,
+bio varchar(70));
+
+create table course(
+courseid varchar(20) primary key,
+name varchar(40),
+subject varchar(20),
+number_enrolled int,
+taught_by varchar(40),
+overall_rating decimal(2,1),
+foreign key (taught_by) references teacher(username));
+
+create table problems(
+problemid varchar(40) primary key,
+difficulty varchar(15),
+problem_statement varchar(1000),
+course varchar(20),
+problem_name varchar(30),
+solution varchar(1000),
+type varchar(30),
+foreign key (course) references course(courseid));
+
+create table solved_problems(
+username varchar(40),
+problemid varchar(40),
+foreign key (username) references student(username),
+foreign key (problemid) references problems(problemid),
+primary key (username,problemid));
+
+create table used_courses(
+username varchar(40),
+courseid varchar(20),
+rating int,
+foreign key (username) references student(username),
+foreign key (courseid) references course(courseid),
+primary key (username,courseid));

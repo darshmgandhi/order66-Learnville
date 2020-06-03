@@ -1,0 +1,69 @@
+Theory of Computation:
+
+------------Q1------------
+Q:
+Accept any string that ends with a 1 using 3 states
+
+A:
+qs = q1
+{
+q1 : [(q2, 1), (q2, 1)]
+q2 : [(q2, 1), (q3, 0)]
+q3 : [(q2, 0), (q2, 1)]
+}
+qa = [q2]
+
+------------Q2------------
+Q:
+Write a DFA to accept strings containing 001 with 4 states
+
+A:
+qs = q1
+{
+q1 : [(q1, 1), (q2, 0)]
+q2 : [(q1, 1), (q3, 0)]
+q3 : [(q3, 0), (q4, 1)]
+q4 : [(q4, 0), (q4, 1)]
+}
+qa = [q4]
+
+------------Q3------------
+Q:
+Create a DFA that shows a running count of the sum numerical input symbols it reads, modulo 3. If in between it receives <RESET>, it resets the count to 0. Here the set of symbols is {0, 1, 2, <RESET>}
+
+A:
+qs = q1
+{
+q1 : [(q1, 0), (q1, <RESET>), (q2, 1), (q3, 2)]
+q2 : [(q1, 2), (q1, <RESET>), (q2, 0), (q3, 1)]
+q3 : [(q1, 1), (q1, <RESET>), (q2, 2), (q3, 0)]
+}
+qa = [q1]
+
+--------------------------
+
+Computer Architecture and Organization:
+
+------------Q1------------
+Q:
+Write the Microprograms for these Instructions given to a Harvard Single-Bus Processor: 
+1. JCA<fl>
+2. CCD<fl>xx
+3. ORI<rn>xx
+Exclude the fetch instruction
+
+A:
+JCA<fl> :
+Efl, Rms 
+Ear, Lpc, Rms
+
+CCD<fl>xx :
+Epm, Lor, Ipc, Efl, Rms
+Epc, Dsp, Lsm
+Eor, Lpc, Rms
+
+ADI<rn>xx :
+Epm, Lor, Ipc
+Erg, Saf(A+B), Lar
+Ear, Lrg, Rms
+
