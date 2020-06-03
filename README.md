@@ -36,5 +36,9 @@ In the powershell, change your current directory to the one containing the codeb
 ```
 python 'learnville_new.py'
 ```
+In bash, change your current directory to the one containing the codebase using `cd` command and type - 
+```
+python3 learnville_new.py
+```
 Copy the link [http://127.0.0.1:5000/](http://127.0.0.1:5000/) and paste it on your browser's address bar.
 The website will run on that url.
