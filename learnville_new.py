@@ -107,7 +107,11 @@ def addcourse():
         if request.method=='POST':
             cur = mysql.connection.cursor()
             result = cur.execute("select max(courseid) from course")
-            new_course_id = str(int(cur.fetchall()[0][0])+1).rjust(5,'0')
+            fetch = cur.fetchall()
+            if fetch==((None,),):
+                new_course_id='00000'
+            else:
+                new_course_id = str(int(fetch[0][0])+1).rjust(5,'0')
             newcdetails = request.form
             cname=newcdetails['cname']
             subt=newcdetails['subt']
@@ -240,7 +244,11 @@ def addproblem(course_id):
             new_problem=request.form
             cur = mysql.connection.cursor()
             result = cur.execute("select max(problemid) from problems")
-            new_id = str(int(cur.fetchall()[0][0])+1).rjust(5,'0')     
+            fetch = cur.fetchall()
+            if fetch==((None,),):
+                new_id='00000'
+            else:
+                new_id = str(int(fetch[0][0])+1).rjust(5,'0')
             name = new_problem["name"]
             problem_statement = new_problem["subject"]
             qtype = new_problem["qtype"]
